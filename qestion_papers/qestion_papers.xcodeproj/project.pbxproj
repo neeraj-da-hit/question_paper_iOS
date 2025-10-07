@@ -14,20 +14,20 @@
 		8D0C818D2E93C251007DB846 /* qestion_papersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0C818C2E93C251007DB846 /* qestion_papersTests.swift */; };
 		8D0C81972E93C251007DB846 /* qestion_papersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0C81962E93C251007DB846 /* qestion_papersUITests.swift */; };
 		8D0C81992E93C251007DB846 /* qestion_papersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0C81982E93C251007DB846 /* qestion_papersUITestsLaunchTests.swift */; };
+		8D47A3E12E95A92400BAC959 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47A3E02E95A92400BAC959 /* CourseModel.swift */; };
+		8D47A3E32E95A92E00BAC959 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47A3E22E95A92E00BAC959 /* PaperModel.swift */; };
+		8D47A3E52E95A93800BAC959 /* SemesterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47A3E42E95A93800BAC959 /* SemesterModel.swift */; };
+		8D47A3E72E95A94000BAC959 /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D47A3E62E95A94000BAC959 /* SubjectModel.swift */; };
 		8DF5E69E2E94399800315870 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E69D2E94399800315870 /* NetworkManager.swift */; };
 		8DF5E6A02E9439D800315870 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E69F2E9439D800315870 /* CourseView.swift */; };
 		8DF5E6A22E9439E900315870 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6A12E9439E900315870 /* BookmarkView.swift */; };
-		8DF5E6A42E943CE500315870 /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6A32E943CE500315870 /* CourseModel.swift */; };
 		8DF5E6A62E943CF800315870 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6A52E943CF800315870 /* CourseViewModel.swift */; };
 		8DF5E6A92E943E2200315870 /* ApiConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6A82E943E2200315870 /* ApiConstant.swift */; };
 		8DF5E6AB2E94425700315870 /* SemesterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6AA2E94425700315870 /* SemesterViewModel.swift */; };
-		8DF5E6AD2E9443B600315870 /* SemesterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6AC2E9443B600315870 /* SemesterModel.swift */; };
 		8DF5E6AF2E94445C00315870 /* SemesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6AE2E94445C00315870 /* SemesterView.swift */; };
 		8DF5E6B12E944AED00315870 /* SubjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6B02E944AED00315870 /* SubjectsView.swift */; };
-		8DF5E6B32E944DE500315870 /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6B22E944DE500315870 /* SubjectModel.swift */; };
 		8DF5E6B52E944DF200315870 /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6B42E944DF200315870 /* SubjectViewModel.swift */; };
 		8DF5E6B72E945EF300315870 /* PaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6B62E945EF300315870 /* PaperView.swift */; };
-		8DF5E6B92E94600F00315870 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6B82E94600F00315870 /* PaperModel.swift */; };
 		8DF5E6BB2E94602F00315870 /* PaperViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6BA2E94602F00315870 /* PaperViewModel.swift */; };
 		8DF5E6BD2E9464EB00315870 /* PDFVivwer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5E6BC2E9464EB00315870 /* PDFVivwer.swift */; };
 /* End PBXBuildFile section */
@@ -60,20 +60,20 @@
 		8D0C81922E93C251007DB846 /* qestion_papersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = qestion_papersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D0C81962E93C251007DB846 /* qestion_papersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qestion_papersUITests.swift; sourceTree = "<group>"; };
 		8D0C81982E93C251007DB846 /* qestion_papersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qestion_papersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8D47A3E02E95A92400BAC959 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
+		8D47A3E22E95A92E00BAC959 /* PaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperModel.swift; sourceTree = "<group>"; };
+		8D47A3E42E95A93800BAC959 /* SemesterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterModel.swift; sourceTree = "<group>"; };
+		8D47A3E62E95A94000BAC959 /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		8DF5E69D2E94399800315870 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8DF5E69F2E9439D800315870 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
 		8DF5E6A12E9439E900315870 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
-		8DF5E6A32E943CE500315870 /* CourseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		8DF5E6A52E943CF800315870 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		8DF5E6A82E943E2200315870 /* ApiConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstant.swift; sourceTree = "<group>"; };
 		8DF5E6AA2E94425700315870 /* SemesterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterViewModel.swift; sourceTree = "<group>"; };
-		8DF5E6AC2E9443B600315870 /* SemesterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterModel.swift; sourceTree = "<group>"; };
 		8DF5E6AE2E94445C00315870 /* SemesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterView.swift; sourceTree = "<group>"; };
 		8DF5E6B02E944AED00315870 /* SubjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsView.swift; sourceTree = "<group>"; };
-		8DF5E6B22E944DE500315870 /* SubjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		8DF5E6B42E944DF200315870 /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
 		8DF5E6B62E945EF300315870 /* PaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperView.swift; sourceTree = "<group>"; };
-		8DF5E6B82E94600F00315870 /* PaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperModel.swift; sourceTree = "<group>"; };
 		8DF5E6BA2E94602F00315870 /* PaperViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperViewModel.swift; sourceTree = "<group>"; };
 		8DF5E6BC2E9464EB00315870 /* PDFVivwer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFVivwer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,11 +126,11 @@
 		8D0C817A2E93C250007DB846 /* qestion_papers */ = {
 			isa = PBXGroup;
 			children = (
+				8D47A3DF2E95A8EE00BAC959 /* Model */,
 				8DF5E6A72E943E1700315870 /* constant */,
 				8DF5E69C2E94398B00315870 /* Helpers */,
 				8DF5E69B2E94394400315870 /* View */,
 				8DF5E69A2E94393E00315870 /* ViewModel */,
-				8DF5E6992E94393B00315870 /* Model */,
 				8D0C817B2E93C250007DB846 /* qestion_papersApp.swift */,
 				8D0C817D2E93C250007DB846 /* ContentView.swift */,
 				8D0C817F2E93C251007DB846 /* Assets.xcassets */,
@@ -164,13 +164,13 @@
 			path = qestion_papersUITests;
 			sourceTree = "<group>";
 		};
-		8DF5E6992E94393B00315870 /* Model */ = {
+		8D47A3DF2E95A8EE00BAC959 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8DF5E6A32E943CE500315870 /* CourseModel.swift */,
-				8DF5E6AC2E9443B600315870 /* SemesterModel.swift */,
-				8DF5E6B22E944DE500315870 /* SubjectModel.swift */,
-				8DF5E6B82E94600F00315870 /* PaperModel.swift */,
+				8D47A3E02E95A92400BAC959 /* CourseModel.swift */,
+				8D47A3E22E95A92E00BAC959 /* PaperModel.swift */,
+				8D47A3E42E95A93800BAC959 /* SemesterModel.swift */,
+				8D47A3E62E95A94000BAC959 /* SubjectModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,20 +349,20 @@
 				8DF5E6A92E943E2200315870 /* ApiConstant.swift in Sources */,
 				8DF5E6AB2E94425700315870 /* SemesterViewModel.swift in Sources */,
 				8DF5E6B12E944AED00315870 /* SubjectsView.swift in Sources */,
-				8DF5E6B92E94600F00315870 /* PaperModel.swift in Sources */,
-				8DF5E6A42E943CE500315870 /* CourseModel.swift in Sources */,
+				8D47A3E32E95A92E00BAC959 /* PaperModel.swift in Sources */,
 				8DF5E6B72E945EF300315870 /* PaperView.swift in Sources */,
 				8DF5E69E2E94399800315870 /* NetworkManager.swift in Sources */,
+				8D47A3E12E95A92400BAC959 /* CourseModel.swift in Sources */,
 				8DF5E6A62E943CF800315870 /* CourseViewModel.swift in Sources */,
 				8DF5E6B52E944DF200315870 /* SubjectViewModel.swift in Sources */,
 				8DF5E6BB2E94602F00315870 /* PaperViewModel.swift in Sources */,
-				8DF5E6AD2E9443B600315870 /* SemesterModel.swift in Sources */,
 				8DF5E6A22E9439E900315870 /* BookmarkView.swift in Sources */,
 				8DF5E6BD2E9464EB00315870 /* PDFVivwer.swift in Sources */,
-				8DF5E6B32E944DE500315870 /* SubjectModel.swift in Sources */,
 				8D0C817E2E93C250007DB846 /* ContentView.swift in Sources */,
+				8D47A3E72E95A94000BAC959 /* SubjectModel.swift in Sources */,
 				8D0C817C2E93C250007DB846 /* qestion_papersApp.swift in Sources */,
 				8DF5E6A02E9439D800315870 /* CourseView.swift in Sources */,
+				8D47A3E52E95A93800BAC959 /* SemesterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

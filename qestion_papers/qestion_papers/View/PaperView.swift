@@ -9,56 +9,80 @@ import SwiftUI
 
 struct PaperView: View {
     @StateObject private var paperVM = PaperViewModel()
-    var title: String
     var paperId: String
+    var title: String
 
     var body: some View {
-        Group {
+        List {
             if paperVM.isLoading {
-                ProgressView("Loading Papers...")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            } else if let error = paperVM.errorMessage {
-                VStack(spacing: 12) {
-                    Text("Something went wrong:")
-                        .font(.headline)
-                    Text(error)
-                        .foregroundColor(.red)
-                        .multilineTextAlignment(.center)
-
-                    Button("Retry") {
-                        paperVM.fetchPaper(for: paperId)
+                Section {
+                    HStack {
+                        Spacer()
+                        ProgressView("Loading Papers...")
+                        Spacer()
                     }
-                    .padding(.top, 8)
+                    .padding()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            } else if let error = paperVM.errorMessage {
+                Section {
+                    VStack(alignment: .center, spacing: 8) {
+                        Text("Error")
+                            .font(.title3)
+                            .bold()
+                        Text(error)
+                            .foregroundColor(.red)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                }
             } else {
-                List(paperVM.papers) { item in
-                    if let url = URL(string: item.pdfUrl) {
-                        NavigationLink(destination: PDFViewer(url: url).navigationTitle("Year: \(item.year)")) {
-                            VStack(alignment: .leading) {
-                                Text("Paper Year: \(item.year)")
-                                    .font(.headline)
+                ForEach(paperVM.papers) { paper in
+                    if let url = URL(string: paper.pdfUrl) {
+                        NavigationLink(destination: PDFViewer(url: url)
+                            .navigationTitle("Year: \(String(paper.year))")) {
+                            HStack(spacing: 12) {
+                                Image(systemName: "doc.richtext")
+                                    .foregroundColor(.blue)
+                                    .font(.title2)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Year: \(String(paper.year))") // Just plain integer, no formatting
+                                        .font(.headline)
+//                                    Text(paper.pdfUrl)
+//                                        .font(.caption)
+//                                        .foregroundColor(.blue)
+//                                        .lineLimit(1)
+//                                        .truncationMode(.middle)
+                                }
                             }
+                            .padding(.vertical, 6)
                         }
                     } else {
-                        VStack(alignment: .leading) {
-                            Text("Paper Year: \(item.year)")
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Year: \(paper.year)")
+                                .font(.headline)
                             Text("Invalid PDF URL")
                                 .foregroundColor(.red)
                                 .font(.caption)
                         }
+                        .padding(.vertical, 6)
                     }
                 }
             }
         }
-        .onAppear {
+        .navigationTitle(title)
+        .navigationBarTitleDisplayMode(.inline)
+        .refreshable {
             paperVM.fetchPaper(for: paperId)
         }
-        .navigationTitle(title)
+        .onAppear {
+            if paperVM.papers.isEmpty {
+                paperVM.fetchPaper(for: paperId)
+            }
+        }
     }
 }
 
-
 #Preview {
-    PaperView(title: "subject name",paperId: "68e3efc8f9ca21b3ce54bbfe")
+    PaperView(paperId: "68e3efc8f9ca21b3ce54bbfe", title: "Subject Name")
 }

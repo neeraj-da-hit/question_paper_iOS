@@ -12,27 +12,40 @@ struct CourseView: View {
     @StateObject private var courseVM = CourseViewModel()
     
     var body: some View {
-        Group {
+        List {
             if courseVM.isLoading {
-                ProgressView("Loading...")
+                Section {
+                    HStack {
+                        Spacer()
+                        ProgressView("Loading...")
+                        Spacer()
+                    }
+                }
             } else if let error = courseVM.errorMessage {
-                Text(error)
+                Section {
+                    Text(error)
+                        .foregroundColor(.red)
+                }
             } else {
-                List(courseVM.courses) { item in
+                ForEach(courseVM.courses) { item in
                     NavigationLink(destination: SemesterView(courseId: item.id, title: item.name)) {
                         Text(item.name)
                     }
                 }
             }
         }
-        .onAppear() {
+        .navigationTitle("Courses")
+        .refreshable {
+            courseVM.fetchCourse()
+        }
+        .onAppear {
             if courseVM.courses.isEmpty {
                 courseVM.fetchCourse()
             }
         }
-        .navigationTitle("Courses")
     }
 }
+
 
 #Preview {
     CourseView()

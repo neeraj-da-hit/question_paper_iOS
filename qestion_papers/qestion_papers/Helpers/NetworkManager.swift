@@ -1,6 +1,6 @@
 //
 //  NetworkManager.swift
-//  qestion_papers
+//  shoping api
 //
 //  Created by Neeraj Dahit on 06/10/25.
 //
@@ -68,4 +68,3 @@ class NetworkManager {
         }.resume()
     }
 }
-

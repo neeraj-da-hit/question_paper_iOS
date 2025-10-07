@@ -10,32 +10,43 @@ import SwiftUI
 struct SubjectsView: View {
     @StateObject private var subjectVM = SubjectViewModel()
     var subjectId: String
-    var title:String
+    var title: String
+
     var body: some View {
-        Group {
+        List {
             if subjectVM.isLoading {
-                ProgressView("Loading Subjects...")
+                Section {
+                    HStack {
+                        Spacer()
+                        ProgressView("Loading Subjects...")
+                        Spacer()
+                    }
+                }
             } else if let error = subjectVM.errorMessage {
-                Text("something went wrong: \(error)")
+                Section {
+                    Text("Something went wrong: \(error)")
+                        .foregroundColor(.red)
+                }
             } else {
-                List(subjectVM.subjectList) { item in
-                    NavigationLink(destination: PaperView(title: item.name, paperId: item.id)) {
+                ForEach(subjectVM.subjectList) { item in
+                    NavigationLink(destination: PaperView(paperId: item.id, title: item.name)) {
                         Text(item.name)
                     }
                 }
-                .refreshable {
-                    subjectVM.fetchSubject(for: subjectId)
-                }
             }
+        }
+        .navigationTitle(title)
+        .refreshable {
+            subjectVM.fetchSubject(for: subjectId)
         }
         .onAppear {
             if subjectVM.subjectList.isEmpty {
                 subjectVM.fetchSubject(for: subjectId)
             }
         }
-        .navigationTitle(title)
     }
 }
+
 
 #Preview {
     SubjectsView(subjectId: "68e3efc8f9ca21b3ce54bbfe", title: "sme1")
