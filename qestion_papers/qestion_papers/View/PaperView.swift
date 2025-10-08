@@ -4,7 +4,6 @@
 //
 //  Created by Neeraj Dahit on 07/10/25.
 //
-
 import SwiftUI
 
 struct PaperView: View {
@@ -13,61 +12,83 @@ struct PaperView: View {
     var title: String
 
     var body: some View {
-        List {
+        Group {
             if paperVM.isLoading {
-                Section {
-                    HStack {
-                        Spacer()
-                        ProgressView("Loading Papers...")
-                        Spacer()
-                    }
-                    .padding()
+                VStack {
+                    Spacer()
+                    ProgressView("Loading Papers...")
+                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                        .padding()
+                    Spacer()
                 }
             } else if let error = paperVM.errorMessage {
-                Section {
-                    VStack(alignment: .center, spacing: 8) {
-                        Text("Error")
-                            .font(.title3)
-                            .bold()
-                        Text(error)
-                            .foregroundColor(.red)
-                            .multilineTextAlignment(.center)
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity)
+                VStack(spacing: 10) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .font(.system(size: 50))
+                        .foregroundColor(.orange)
+                    Text("Error")
+                        .font(.title3)
+                        .bold()
+                    Text(error)
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
                 }
+                .padding()
+                .frame(maxWidth: .infinity)
+            } else if paperVM.papers.isEmpty {
+                VStack(spacing: 8) {
+                    Image(systemName: "doc.text.magnifyingglass")
+                        .font(.system(size: 50))
+                        .foregroundColor(.gray)
+                    Text("No Papers Found")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    Text("Try pulling down to refresh.")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
             } else {
-                ForEach(paperVM.papers) { paper in
-                    if let url = URL(string: paper.pdfUrl) {
-                        NavigationLink(destination: PDFViewer(url: url)
-                            .navigationTitle("Year: \(String(paper.year))")) {
-                            HStack(spacing: 12) {
-                                Image(systemName: "doc.richtext")
-                                    .foregroundColor(.blue)
-                                    .font(.title2)
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Year: \(String(paper.year))") // Just plain integer, no formatting
-                                        .font(.headline)
-//                                    Text(paper.pdfUrl)
-//                                        .font(.caption)
-//                                        .foregroundColor(.blue)
-//                                        .lineLimit(1)
-//                                        .truncationMode(.middle)
+                List {
+                    ForEach(paperVM.papers) { paper in
+                        Section(header: Text("\(paper.subject.name) — \(paper.year)")
+                            .font(.headline)
+                        ) {
+
+                            // 🧾 Paper PDF
+                            if let pdfUrl = URL(string: paper.pdfUrl) {
+                                NavigationLink(destination: PDFViewer(url: pdfUrl)
+                                    .navigationTitle("Paper \(paper.year)")
+                                    .navigationBarTitleDisplayMode(.inline)) {
+                                    Label("Open Question Paper", systemImage: "doc.text")
+                                        .foregroundColor(.blue)
                                 }
                             }
-                            .padding(.vertical, 6)
+
+                            // 🧠 Master Paper PDF (optional)
+                            if let masterUrl = paper.masterPdfUrl,
+                               let url = URL(string: masterUrl) {
+                                NavigationLink(destination: PDFViewer(url: url)
+                                    .navigationTitle("Master Paper \(paper.year)")
+                                    .navigationBarTitleDisplayMode(.inline)) {
+                                    Label("Open Master Paper", systemImage: "doc.richtext")
+                                        .foregroundColor(.purple)
+                                }
+                            }
+
+                            // 🎥 YouTube (optional)
+                            if let ytUrl = paper.ytUrl,
+                               let url = URL(string: ytUrl) {
+                                Link(destination: url) {
+                                    Label("Watch Solution Video", systemImage: "play.rectangle.fill")
+                                        .foregroundColor(.red)
+                                }
+                            }
                         }
-                    } else {
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text("Year: \(paper.year)")
-                                .font(.headline)
-                            Text("Invalid PDF URL")
-                                .foregroundColor(.red)
-                                .font(.caption)
-                        }
-                        .padding(.vertical, 6)
                     }
                 }
+                .listStyle(.insetGrouped)
             }
         }
         .navigationTitle(title)
@@ -84,5 +105,8 @@ struct PaperView: View {
 }
 
 #Preview {
-    PaperView(paperId: "68e3efc8f9ca21b3ce54bbfe", title: "Subject Name")
+    PaperView(
+        paperId: "68e3efc8f9ca21b3ce54bbfe",
+        title: "Programming Principles"
+    )
 }

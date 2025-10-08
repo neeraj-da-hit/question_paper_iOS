@@ -18,13 +18,17 @@ struct PaperModel: Identifiable, Codable {
     let subject: SubjectSummary
     let year: Int
     let pdfUrl: String
+    let masterPdfUrl: String?
+    let ytUrl: String?
     let v: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case subject
         case year
         case pdfUrl
+        case masterPdfUrl
+        case ytUrl
         case v = "__v"
     }
 }
@@ -32,10 +36,9 @@ struct PaperModel: Identifiable, Codable {
 struct SubjectSummary: Codable {
     let id: String
     let name: String
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case name
     }
 }
-
